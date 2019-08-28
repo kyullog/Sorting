@@ -7,10 +7,8 @@ def selection_sort(arr):
 
         for j in range(cur_index, len(arr)):
             if smallest_value > arr[j]:
-                # hold = arr[j]
-                # arr[j] = smallest_value
-                # smallest_value = hold
                 arr[j], smallest_value = smallest_value, arr[j]
+
         arr[cur_index] = smallest_value
 
     return arr
