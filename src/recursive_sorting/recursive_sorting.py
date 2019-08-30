@@ -3,15 +3,34 @@ def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
     # TO-DO
+    a_position = 0
+    b_position = 0
     for i in range(elements):
+        if a_position >= len(arrA):
+            merged_arr[i] = arrB[b_position]
+            b_position += 1
+        elif b_position >= len(arrB):
+            merged_arr[i] = arrA[a_position]
+            a_position += 1
+        elif arrA[a_position] >= arrB[b_position]:
+            merged_arr[i] = arrB[b_position]
+            b_position += 1
+        else:
+            merged_arr[i] = arrA[a_position]
+            a_position += 1
 
     return merged_arr
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
+
+
 def merge_sort(arr):
     # TO-DO
-
+    if len(arr) > 1:
+        left = merge_sort(arr[0: (len(arr) // 2)])
+        right = merge_sort(arr[len(arr) // 2:])
+        arr = merge(left, right)
     return arr
 
 
